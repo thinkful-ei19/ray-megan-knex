@@ -3,7 +3,7 @@
 const { DATABASE } = require('./config');
 const knex = require('knex')({
   client: 'pg',
-  connection: ''
+  connection: 'postgres://oqmhyxpb:OfrePSUmGpejdZW0_szZzp6zr2u-5GAE@nutty-custard-apple.db.elephantsql.com:5432/oqmhyxpb'
 });
 
 // clear the console before each run
@@ -22,11 +22,14 @@ process.stdout.write('\x1Bc');
 //   .table('restaurants')
 //   .then(results => console.log(results));
 
-knex('restaurants')
-  .where('cuisine', 'Italian')
-  .then(results => console.log(results));
+// knex('restaurants')
+//   .where('cuisine', 'Italian')
+//   .then(results => console.log(results));
 
-
+knex.where('cuisine', 'Italian')
+  .select('id', 'name')
+  .limit(10)
+  .then(result=>console.log(result));
 
 
 
