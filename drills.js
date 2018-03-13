@@ -1,10 +1,9 @@
 'use strict';
 
 const { DATABASE } = require('./config');
-<<<<<<< HEAD
 const knex = require('knex')({
   client: 'pg',
-  connection: 'postgres://oqmhyxpb:OfrePSUmGpejdZW0_szZzp6zr2u-5GAE@nutty-custard-apple.db.elephantsql.com:5432/oqmhyxpb'
+  connection: '<database link here>'
 });
 
 // clear the console before each run
@@ -27,8 +26,8 @@ process.stdout.write('\x1Bc');
 //   .where('cuisine', 'Italian')
 //   .then(results => console.log(results));
 
-// knex.where('cuisine', 'Italian')
-//   .select('id', 'name')
+// knex('restaurants').where('cuisine', 'Italian')
+//   .select()
 //   .limit(10)
 //   .then(result=>console.log(result));
 
@@ -73,9 +72,52 @@ process.stdout.write('\x1Bc');
 //   .returning(['id', 'name'])
 //   .then(console.log);
 
+//both #8 and #9 in the above...
+
+// knex('restaurants')
+//   .insert([{
+//     name: 'Medusas',
+//     borough: 'Brooklyn',
+//     cuisine: 'vegetarian',
+//     address_building_number: '123',
+//     address_street: 'Atlantic Avenue',
+//     address_zipcode: '11231'
+//   },
+//   {
+//     name: 'Rays Chicken and Waffles',
+//     borough: 'Brooklyn',
+//     cuisine: 'American',
+//     address_building_number: '553',
+//     address_street: 'Waffle Avenue',
+//     address_zipcode: '11231'
+//   },
+//   {
+//     name: 'Peche',
+//     borough: 'Queens',
+//     cuisine: 'absinthe bar',
+//     address_building_number: '453',
+//     address_street: 'Green Avenue',
+//     address_zipcode: '11231'
+//   }
+// ])
+//   .returning(['id', 'name'])
+//   .then(console.log);
+
+// knex('restaurants')
+//   .update('name', 'DJ Reynolds Pub and Restaurant')
+//   .where('name', 'Dj Reynolds Pub And Restaurant')
+//   .then(results => console.log(results));
 
 
+// knex('grades')
+//   .where('grade', 10)
+//   .del()
+//   .then(console.log);
 
+// knex('restaurants')
+//   .where('id', 22)
+//   .del()
+//   .then(console.log);
 
 // Destroy the connection pool
 knex.destroy().then(() => {
